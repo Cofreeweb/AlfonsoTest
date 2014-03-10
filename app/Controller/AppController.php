@@ -10,7 +10,7 @@
  * @since         CakePHP(tm) v 0.2.9
  */
 
-App::uses('Controller', 'Controller');
+App::uses( 'Controller', 'Controller');
 
 /**
  * Application Controller
@@ -21,5 +21,49 @@ App::uses('Controller', 'Controller');
  * @package		app.Controller
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
-class AppController extends Controller {
+class AppController extends Controller 
+{
+  public $helpers = array(
+		'Session',
+		'Management.AdminNav',
+		'Acl.Auth',
+		'Upload.Asset',
+		'Upload.Upload',
+		'AssetCompress.AssetCompress',
+		'Section.Section',
+		'Management.Inline',
+		'Angular.Seter'
+	);
+  
+  public $components = array(
+      'I18n.Langs',
+      'Acl',
+      'Auth' => array(
+          'authenticate' => array(
+              'Form' => array(
+                  'fields' => array('username' => 'email'),
+                  'scope'  => array('User.status' => 1)
+              )
+          ),
+          'authorize' => array(
+              'Actions' => array( 'actionPath' => 'controllers')
+          ),
+          'loginAction' => array(
+              'plugin' => 'acl',
+              'controller' => 'users',
+              'action' => 'login'
+          )
+      ),
+      'Session',
+      'Management.Manager',
+      'RequestHandler',
+  );
+  
+  public function beforeFilter()
+  {
+    $this->loadModel( 'Blog.Post');
+    $posts = $this->Post->find( 'all');
+    $this->set( compact( 'posts'));
+  }
+
 }

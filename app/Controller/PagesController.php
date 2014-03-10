@@ -28,6 +28,12 @@ class PagesController extends AppController {
  */
 	public $uses = array();
 
+  public function beforeFilter()
+  {
+    parent::beforeFilter();
+    $this->Auth->allow( array( 'display'));
+  }
+  
 /**
  * Displays a view
  *
@@ -64,5 +70,11 @@ class PagesController extends AppController {
 			}
 			throw new NotFoundException();
 		}
+	}
+	
+	public function admin_display()
+	{
+	  $path = func_get_args();
+	  $this->display( $path [0]);
 	}
 }

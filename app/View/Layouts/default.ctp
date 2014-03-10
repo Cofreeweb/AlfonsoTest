@@ -20,33 +20,62 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
 
 		echo $this->fetch('meta');
-		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+	
+	<?= $this->Html->css( array(
+	    '/management/css/bootstrap.min',
+	    'style',
+	    'font-awesome.min',
+	    '/management/css/inline',
+	    '/entry/css/flexslider.css'
+	)) ?>
+	
+	<?= $this->Html->script( array(
+	  'jquery-1.10.2.min.js',
+    'angular',
+    'angular-route.min.js',
+    'angular-sanitize.js'
+	)) ?>
+  <link rel="stylesheet" type="text/css" href="/section/css/angular/ng-slider.round.css" />
+  <link rel="stylesheet" type="text/css" href="/section/css/angular/ng-slider.css" />
 </head>
-<body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
-		</div>
-		<div id="content">
+<body ng-app="adminApp">
+  <?= $this->Inline->toolbar() ?>
+  <div id="wrapper">
+    <header id="pageHeader" class="container clearfix noBorder">
+      <div id="logo">
+        <?= $this->Html->link( 'Viva el Responsive', '/') ?>
+      </div>
+      <nav id="mainNav">
+			  <ul class="menu">
+			    <?= $this->Section->nav( 'main') ?>
+			  </ul>
+			</nav>
+    </header>
+    
+    <div id="mainContent" class="container" role="main">
+      <?= $this->Session->flash() ?>
+      
+			<?= $this->fetch('content') ?>
+    </div>
+  </div>
+  
+	
+	<footer class="footer">
 
-			<?php echo $this->Session->flash(); ?>
-
-			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
-		</div>
-	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	</footer>
+	<?= $this->fetch( 'script') ?>
+	<?= $this->Html->script( array(
+	  '/entry/js/jquery.flexslider-min'
+	)) ?>
+	<?= $this->fetch( 'scriptBottom') ?>
+	<?= $this->fetch( 'css') ?>
+	
+	<script>
+	  
+	</script>
 </body>
 </html>

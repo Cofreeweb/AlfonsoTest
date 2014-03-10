@@ -43,3 +43,18 @@
 [submodule "app/Plugin/Utility"]
 	path = app/Plugin/Utility
 	url = https://github.com/Cofreeweb/utility.git
+[submodule "app/Plugin/Entry"]
+	path = app/Plugin/Entry
+	url = https://github.com/Cofreeweb/CakeEntryPlugin.git
+[submodule "app/Plugin/Angular"]
+	path = app/Plugin/Angular
+	url = https://github.com/Cofreeweb/CakeAngularPlugin.git
+[submodule "app/Plugin/Section"]
+	path = app/Plugin/Section
+	url = https://github.com/Cofreeweb/CakeSectionPlugin.git
+[submodule "app/Plugin/Blog"]
+	path = app/Plugin/Blog
+	url = https://github.com/Cofreeweb/CakeBlogPlugin.git
+[submodule "app/Plugin/Mongodb"]
+	path = app/Plugin/Mongodb
+	url = https://github.com/Cofreeweb/CakeMongodbPlugin.git
