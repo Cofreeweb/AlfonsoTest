@@ -10,7 +10,7 @@ class Lab extends AppModel
     'title' => array(' type' =>'string'),
     'published' => array( 'type' =>'boolean'),
     'user_id' => array( 'type' =>'integer'),
-    'upload' => array(
+    'uploads' => array(
         'title' => array( 'type' => 'string'),
         'subtitle' => array( 'type' => 'string')
     ),
@@ -26,12 +26,6 @@ class Lab extends AppModel
       'Mongodb.Schemaless',
 	    'Mongodb.SqlCompatible',
       'Mongodb.Revision',
-      'Mongodb.TranslateMongo' => array(
-          'title',
-          'upload' => array(
-              'title'
-          )
-      )
   );
   
   public $belongsTo = array(

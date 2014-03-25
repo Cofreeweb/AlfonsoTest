@@ -3849,3 +3849,47 @@ only screen and (                min-resolution: 2dppx) {
 .color-set{
   padding:20px;
 }
+
+
+.row {
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid #000;
+  clear: both;
+  overflow: hidden;
+  width: 100%;
+  background: #ccc;
+}
+.block {
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid #990000;
+  float: left;
+  background: #fff;
+}
+
+.col-1 {
+  width: 16%;
+}
+.col-2 {
+  width: 32%;
+}
+.col-3 {
+  width: 48%;
+}
+.col-4 {
+  width: 64%;
+}
+.col-5 {
+  width: 80%;
+}
+.col-6 {
+  width: 96%;
+}
+.ui-state-highlight { height: 200px; margin: 10px 0; line-height: 1.2em; border: 1px solid #990000 }
+
+
+.sections-sortable li {
+  display: block;
+  float: none;
+}

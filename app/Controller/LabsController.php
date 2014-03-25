@@ -36,8 +36,55 @@ class LabsController extends AppController
     }
   }
   
-  public function admin_edit( $id = null) 
+  public function admin_test( $id)
   {
+    $this->Lab->id = $id;
+    $this->Lab->addSubdocument( 'uploads', array(
+        'title' => 'Leches',
+        'subtitle' => 'Milk'
+    ), array(
+        'revision' => 'draft'
+    ));
+    // $this->Lab->mongoNoSetOperator = '$push';
+    // $this->Lab->id = $id;
+    // $this->Lab->save( array(
+    //     'uploads' => array(
+    //         array(
+    //             'id' => new MongoId(),
+    //             'title' => 'Alfonso',
+    //             'subtitle' => 'Arambillet'
+    //         )
+    //     )
+    // ), array(
+    //     'revision' => 'draft'
+    // ));
+    
+    // $this->Lab->updateSubdocument( 'uploads', '531e053dcae8b7c22e000004', array(
+    //     'title' => 'Ayer',
+    //     'photos' => array(
+    //         
+    //     )
+    // ), array(
+    //     'revision' => 'draft'
+    // ));
+    
+    // $this->Lab->updateSubcontent( array(
+    //     'uploads.$' => array(
+    //         'id' => new MongoId( '531e053dcae8b7c22e000004'),
+    //         'title' => 'Pacos',
+    //         'subtitle' => 'Brunos'
+    //     )
+    // ), array(
+    //     'uploads.id' => new MongoId( '531e053dcae8b7c22e000004')
+    // ), array(
+    //     'revision' => 'draft'
+    // ));
+    
+    $this->redirect( array( 'action' => 'edit', $id));
+  }
+  
+  public function admin_edit( $id = null) 
+  {     
     // $this->Lab->updateAll( array(
     //     'upload.subtitle' => 'Hostias',
     // ), array(
@@ -88,6 +135,8 @@ class LabsController extends AppController
     $this->Lab->delete( $id);
     $this->redirect( array( 'action' => 'index'));
   }
+  
+
   
   public function view( $id)
   {

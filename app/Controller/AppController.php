@@ -57,13 +57,9 @@ class AppController extends Controller
       'Session',
       'Management.Manager',
       'RequestHandler',
+      'Angular.Angular',
+      'Acl.AclAccess'
   );
   
-  public function beforeFilter()
-  {
-    $this->loadModel( 'Blog.Post');
-    $posts = $this->Post->find( 'all');
-    $this->set( compact( 'posts'));
-  }
 
 }

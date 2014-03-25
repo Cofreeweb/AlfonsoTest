@@ -35,7 +35,7 @@ CakePlugin::load( 'Cofree', array( 'bootstrap' => true));
 CakePlugin::load( 'Section', array( 'bootstrap' => true, 'routes' => true));
 
 CakePlugin::load( 'Template', array( 'bootstrap' => false, 'routes' => false));
-CakePlugin::load( 'Blog', array('bootstrap' => false, 'routes' => false));
+CakePlugin::load( 'Blog', array(' bootstrap' => false, 'routes' => false));
 CakePlugin::load( 'Search');
 CakePlugin::load( 'Acl', array( 'routes' => true));
 CakePlugin::load( 'Upload', array( 'routes' => true));

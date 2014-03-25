@@ -3,6 +3,10 @@
       <?= $this->Html->link( 'Publicar', array(
           'action' => 'published',
           $this->request->data ['Lab']['id']
+      ))?> | 
+      <?= $this->Html->link( 'Test', array(
+          'action' => 'test',
+          $this->request->data ['Lab']['id']
       ))?>
   <? endif ?>
 <?= $this->Form->create( 'Lab', array(
