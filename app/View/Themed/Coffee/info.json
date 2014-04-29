@@ -1,0 +1,11 @@
+{
+  "name": "Coffee",
+  "plugins": [
+    "Blog",
+    "Entry"
+  ],
+  "menus": [
+    "main",
+    "bottom"
+  ]
+}

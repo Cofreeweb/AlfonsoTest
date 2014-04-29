@@ -17,5 +17,16 @@ $config ['AppPlugins'] = array(
   'Angular',
   'Section',
   'Blog',
-  'Mongodb'
+  'Mongodb',
+  'Configuration',
+  'Dictionary',
+  'Fixturize'
+);
+
+/**
+ * Los plugins de contenido dinámico que tendrá cómo opciones la configuráción de la aplicación
+ */
+$config ['AppContentPlugins'] = array(
+  'Blog',
+  'Entry',
 );

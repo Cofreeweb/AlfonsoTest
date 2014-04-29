@@ -58,3 +58,12 @@
 [submodule "app/Plugin/Mongodb"]
 	path = app/Plugin/Mongodb
 	url = https://github.com/Cofreeweb/CakeMongodbPlugin.git
+[submodule "app/Plugin/Configuration"]
+	path = app/Plugin/Configuration
+	url = https://github.com/Cofreeweb/CakeConfigurationPlugin.git
+[submodule "app/Plugin/Dictionary"]
+	path = app/Plugin/Dictionary
+	url = https://github.com/Cofreeweb/CakeDictionaryPlugin.git
+[submodule "app/Plugin/Fixturize"]
+	path = app/Plugin/Fixturize
+	url = https://github.com/Cofreeweb/cakephp-fixturize.git

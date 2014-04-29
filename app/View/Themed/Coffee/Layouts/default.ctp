@@ -10,10 +10,11 @@
 $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
 ?>
 <!DOCTYPE html>
-<html>
+<html ng-app="adminApp">
 <head>
 	<?php echo $this->Html->charset(); ?>
-	<title> <?= Configure::read( 'Configuration.site_title')?></title>
+	<title ng-model="config.Configuration.site_title"><?= Configure::read( 'Configuration.site_title')?> Coffee</title>
+	
 	<?php
 		echo $this->Html->meta('icon');
 
@@ -23,6 +24,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	?>
 	
 	<?= $this->Html->css( array(
+	    'base',
 	    '/management/css/bootstrap.min',
 	    'style',
 	    'font-awesome.min',
@@ -41,7 +43,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
   <link rel="stylesheet" type="text/css" href="/section/css/angular/ng-slider.round.css" />
   <link rel="stylesheet" type="text/css" href="/section/css/angular/ng-slider.css" />
 </head>
-<body <?= $this->Auth->user() ? 'ng-app="adminApp"' : ''  ?>>
+<body>
   <?= $this->Inline->toolbar() ?>
   <div id="wrapper">
     <header id="pageHeader" class="container clearfix noBorder">

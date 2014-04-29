@@ -39,6 +39,12 @@ if (!defined('APP_DIR')) {
 }
 
 /**
+ * Añade las funciones de traducción
+ */
+require ROOT . DS . APP_DIR . DS . 'Plugin' . DS . 'Dictionary' . DS . 'Lib' . DS . 'translators.php';
+
+
+/**
  * The absolute path to the "cake" directory, WITHOUT a trailing DS.
  *
  * Un-comment this line to specify a fixed path to CakePHP.
@@ -73,6 +79,8 @@ if (php_sapi_name() === 'cli-server') {
 	}
 	$_SERVER['PHP_SELF'] = '/' . basename(__FILE__);
 }
+
+
 
 if (!defined('CAKE_CORE_INCLUDE_PATH')) {
 	if (function_exists('ini_set')) {

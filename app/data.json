@@ -1,0 +1,18 @@
+admin: {
+  plugins: [
+    'blog', 'entry', 'event'
+  ],
+  
+},
+site: {
+  theme: 'basic',
+  title: 'Título del web',
+  description: 'Descripción del web',
+  logo: '/file/photo.jpg',
+  google_analytics: '',
+  page404: 'section_id',
+  enable_comments: true,
+  comments_moderate: true,
+  allow_public_comments: true,
+  
+}

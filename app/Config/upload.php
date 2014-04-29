@@ -1,7 +1,7 @@
 <?php
 
 $config ['Upload'] = array(
-    'block' => array(
+    'gallery' => array(
         'type' => 'image',
         'template' => 'image',
         'thumbail' => 'med',
@@ -16,5 +16,9 @@ $config ['Upload'] = array(
                 'big' => '295w',
             ),
         )
+    ),
+    'document' => array(
+        'type' => 'doc',
+        'template' => 'doc',
     ),
 );

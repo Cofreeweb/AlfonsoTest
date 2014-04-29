@@ -12,7 +12,6 @@ body {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.8;
-  background: url(../img/boby-bg.png) repeat left top;
 }
 p {
   margin-bottom: 20px;
@@ -3892,4 +3891,7 @@ only screen and (                min-resolution: 2dppx) {
 .sections-sortable li {
   display: block;
   float: none;
+}
+.container {
+  margin-top: 40px;
 }

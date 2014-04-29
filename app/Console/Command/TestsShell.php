@@ -27,7 +27,7 @@ class TestsShell extends Shell {
    * @var mixed A single name as a string or a list of names as an array.
    * @access protected
    */
-  var $uses = array( 'Entry.Entry');  
+  var $uses = array( 'Entry.Entry', 'Blog.Post');  
 
   /**
    * Main action
@@ -36,11 +36,18 @@ class TestsShell extends Shell {
    */
   public function sub() 
   {
-    $this->Entry->addSubdocument( array(
+    // $this->Entry->addSubdocument( array(
+    //     'blocks' => array()
+    // ), array(
+    //     'id' => '53343b44cae8b7f50300000c',
+    //     'path' => 'rows'
+    // ));
+    
+    $this->Post->addSubdocument( array(
         'title' => 'Vamos Dinamo!!!'
     ), array(
-        'id' => '53298076cae8b70d0d00001e',
-        'path' => 'rows.blocks',
+        'id' => '5331e5a0cae8b760e8000002',
+        'path' => 'photos',
     ));
 
   }
@@ -48,7 +55,7 @@ class TestsShell extends Shell {
   
   public function del() 
   {
-    $this->Entry->deleteSubdocument( 'rows.blocks.photos', '532afae1cae8b76da8000007', array(
+    $this->Post->deleteSubdocument( 'photos', '5336abb3cae8b7bd7a000008', array(
         'revision' => 'draft'
     ));
   }
@@ -59,7 +66,7 @@ class TestsShell extends Shell {
     _d( $entry);    
   }
   
-  public function addblock( $id = '53298076cae8b70d0d00001e')
+  public function addblock( $id = '53343f74cae8b7d70c000000')
   {
     $block_id = $this->Entry->addSubdocument( array(
         'title' => 'Block '. rand( 0, 9889)
@@ -67,17 +74,6 @@ class TestsShell extends Shell {
         'id' =>  $id,
         'path' => 'rows.blocks',
     ));
-
-    for( $i=0; $i < 2; $i++) 
-    { 
-      $this->Entry->addSubdocument( array(
-          'title' => 'Foto '. rand( 0, 9889)
-      ), array(
-          'id' =>  $block_id,
-          'path' => 'rows.blocks.photos',
-      ));
-    }
-    
   }
   
   public function add_entry()
@@ -141,6 +137,42 @@ class TestsShell extends Shell {
     ));
     _d( $data);
   }
-
+  
+  
+  public function save_post()
+  {
+    $data = array(
+        'title' => 'Mi vida en un segundo',
+    );
+    
+    $this->Post->createPost( 4);
+    $post = $this->Post->find( 'first', array(
+        'conditions' => array(
+            'Post.id' => $this->Post->id
+        ),
+        'revision' => 'draft'
+    ));
+    
+    $url = Router::url( array(
+        'plugin' => 'blog',
+        'controller' => 'posts',
+        'action' => 'edit',
+        'slug' => $post ['Post']['slug']
+    ));
+    _d( $url);
+  }
+  
+  public function index()
+  {
+    $posts = $this->Post->find( 'all', array(
+        'conditions' => array(
+            'Post.section_id' => 4
+        ),
+        'revision' => 'draft',
+        'onlyDraft' => true
+    ));
+    
+    _d( $posts);
+  }
 }
 ?>

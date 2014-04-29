@@ -1,0 +1,11 @@
+{
+  "name": "Básico",
+  "plugins": [
+    "Blog",
+    "Entry"
+  ],
+  "menus": [
+    "main",
+    "bottom"
+  ]
+}

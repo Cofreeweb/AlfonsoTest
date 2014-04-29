@@ -2,6 +2,7 @@
 
 // Setup a 'default' cache configuration for use in the application.
 Cache::config('default', array('engine' => 'File'));
+Cache::config('dictionaries', array('engine' => 'File'));
 
 Configure::write('Dispatcher.filters', array(
 	'AssetDispatcher',
@@ -30,11 +31,13 @@ Configure::load( 'management');
 Configure::load( 'upload');
 Configure::load( 'events');
 
+CakePlugin::load( 'Dictionary', array('bootstrap' => true, 'routes' => false));
+CakePlugin::load( 'I18n', array( 'bootstrap' => true, 'routes' => true));
 
 CakePlugin::load( 'Cofree', array( 'bootstrap' => true));
 CakePlugin::load( 'Section', array( 'bootstrap' => true, 'routes' => true));
 
-CakePlugin::load( 'Template', array( 'bootstrap' => false, 'routes' => false));
+// CakePlugin::load( 'Template', array( 'bootstrap' => false, 'routes' => false));
 CakePlugin::load( 'Blog', array(' bootstrap' => false, 'routes' => false));
 CakePlugin::load( 'Search');
 CakePlugin::load( 'Acl', array( 'routes' => true));
@@ -46,16 +49,23 @@ CakePlugin::load( 'Rating');
 CakePlugin::load( 'Utility');
 CakePlugin::load( 'Recaptcha');
 CakePlugin::load( 'Management', array( 'bootstrap' => true, 'routes' => true));
-CakePlugin::load( 'Category', array('bootstrap' => false, 'routes' => false));
-CakePlugin::load( 'Entry', array('bootstrap' => true, 'routes' => false));
+CakePlugin::load( 'Entry', array('bootstrap' => true, 'routes' => true));
 CakePlugin::load( 'Angular', array('bootstrap' => false, 'routes' => false));
-CakePlugin::load( 'I18n', array( 'bootstrap' => true, 'routes' => true));
 CakePlugin::load( 'Mongodb');
+CakePlugin::load( 'Fixturize');
+CakePlugin::load( 'Configuration', array('bootstrap' => false, 'routes' => false));
 Configure::write( 'Path.files.photos', '/files/');
-
 
 // Configure::load( 'settings');
 App::uses('CofreeEventManager', 'Cofree.Event');
 CofreeEventManager::loadListeners();
+
+if( isset( $_SERVER ['REQUEST_URI']))
+{
+  CakeLog::write( 'debug', $_SERVER ['REQUEST_URI']);
+  
+}
+
+
 
 

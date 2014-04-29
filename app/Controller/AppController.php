@@ -32,10 +32,13 @@ class AppController extends Controller
 		'AssetCompress.AssetCompress',
 		'Section.Section',
 		'Management.Inline',
-		'Angular.Seter'
+		'Angular.Seter',
+		'Cofree.Chtml',
+		'Configuration.Config'
 	);
   
   public $components = array(
+      'Configuration.Config',
       'I18n.Langs',
       'Acl',
       'Auth' => array(
@@ -61,5 +64,9 @@ class AppController extends Controller
       'Acl.AclAccess'
   );
   
-
+  public function beforeFilter()
+  {
+    CakeLog::write( 'debug', '******************************* beforeFilter');
+  }
+  
 }

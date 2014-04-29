@@ -40,6 +40,11 @@ if (!defined('APP_DIR')) {
 }
 
 /**
+ * Añade las funciones de traducción
+ */
+require ROOT . DS . APP_DIR . DS . 'Plugin' . DS . 'Dictionary' . DS . 'Lib' . DS . 'translators.php';
+
+/**
  * The absolute path to the "Cake" directory, WITHOUT a trailing DS.
  *
  * For ease of development CakePHP uses PHP's include_path. If you
