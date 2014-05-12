@@ -20,7 +20,6 @@ class InstallShell extends StartupShell
   public function app()
   {
     $this->schemaCreate( 'app');
-    $this->schemaCreate( 'Blog.posts');
     $this->base();
   }
   

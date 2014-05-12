@@ -69,3 +69,5 @@ if( isset( $_SERVER ['REQUEST_URI']))
 
 
 
+
+CakePlugin::load('Websys', array('bootstrap' => false, 'routes' => false));
