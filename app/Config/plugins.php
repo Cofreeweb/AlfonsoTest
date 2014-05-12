@@ -20,7 +20,8 @@ $config ['AppPlugins'] = array(
   'Mongodb',
   'Configuration',
   'Dictionary',
-  'Fixturize'
+  'Fixturize',
+  'Websys'
 );
 
 /**
